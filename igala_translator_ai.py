@@ -4,12 +4,12 @@
 # Built with AI assistance
 
 import os
-import google.generativeai as genai
+from google import genai
 
 api_key = os.environ.get("GEMINI_API_KEY")
 if not api_key:
     raise EnvironmentError("GEMINI_API_KEY secret is not set. Add it via Replit Secrets.")
-genai.configure(api_key=api_key)
+client = genai.Client(api_key=api_key)
 
 # Verified Igala dictionary by Ann
 translation_rules = {
@@ -100,8 +100,10 @@ Rules:
 - Return ONLY the Igala translation, nothing else
 - Preserve proper Igala tone marks"""
 
-    model = genai.GenerativeModel("gemini-2.0-flash")
-    response = model.generate_content(prompt)
+    response = client.models.generate_content(
+        model="gemini-2.0-flash",
+        contents=prompt
+    )
     return response.text.strip()
 
 print("=" * 40)

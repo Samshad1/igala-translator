@@ -1,6 +1,6 @@
 english,igala_primary,igala_variations,contributor,region,verified
-water,ọmi,,Ann,Ankpa,yes
-fire,una,,Ann,Ankpa,yes
+water,ọmi,"omi,ómì",Ann,Ankpa,yes
+fire,una,"una,uná",Ann,Ankpa,yes
 good morning,wola odudu,,Ann,Ankpa,yes
 good afternoon,ọlọ́rọka,,Ann,Ankpa,yes
 good evening,ọlá'nẹ,,Ann,Ankpa,yes
@@ -14,7 +14,7 @@ no,ọda-aa,,Ann,Ankpa,yes
 goodbye,chẹ́gbatugba,,Ann,Ankpa,yes
 mother,iye,,Ann,Ankpa,yes
 father,ata,,Ann,Ankpa,yes
-child,ọma,,Ann,Ankpa,yes
+child,ọma,"ọmá",Ann,Ankpa,yes
 brother,ọmaye ọnẹkẹle,,Ann,Ankpa,yes
 sister,ọmaye ọnọbule,,Ann,Ankpa,yes
 friend,onuku,,Ann,Ankpa,yes
@@ -48,7 +48,6 @@ road,ọna,,Ann,Ankpa,yes
 money,ọ́kọ́,,Ann,Ankpa,yes
 book,otakada,,Ann,Ankpa,yes
 clothes,ukpo,,Ann,Ankpa,yes
-fire,una,,Ann,Ankpa,yes
 land,ane,,Ann,Ankpa,yes
 god,ọjọ,,Ann,Ankpa,yes
 one,ényẹ́,,Ann,Ankpa,yes
@@ -61,22 +60,372 @@ tomorrow,ọna,,Ann,Ankpa,yes
 yesterday,ọnalẹ,,Ann,Ankpa,yes
 morning,òdùdu,,Ann,Ankpa,yes
 night,anẹ,,Ann,Ankpa,yes
-fire,una,"una,uná",Manasseh,Dekina,yes
+canoe,ọkó èjomi,,Ann,Ankpa,yes
+husband,òkọ,,Ann,Ankpa,yes
+millipede,ọkọ,,Ann,Ankpa,yes
+i,u,,Samuel,Original,yes
+you,uwe,,Samuel,Original,yes
+to,na,,Samuel,Original,yes
+who,ene,,Samuel,Original,yes
+how,abu,,Samuel,Original,yes
+my,mi,,Samuel,Original,yes
+dog,abia,,Samuel,Original,yes
+market,aja,,Samuel,Original,yes
 sun,ólù,"olu,ọlu",Manasseh,Dekina,yes
-moon,óchù,"ochu,ochu",Manasseh,Dekina,yes
+moon,óchù,"ochu",Manasseh,Dekina,yes
 rain,ómì ki' aló,"omi-ojale,omi elọ,omi kia lọ",Manasseh,Dekina,yes
-child,ọmá,"ọma,ọma",Manasseh,Dekina,yes
 school,unyí ùkọchẹ́,"unyi-ukochẹ,uny'ukọchẹ",Manasseh,Dekina,yes
 learn,ukọchẹ,"ukóchę,kọchẹ",Manasseh,Dekina,yes
-speak,kọla,"ukọla,ukọla",Manasseh,Dekina,yes
+speak,kọla,"ukọla",Manasseh,Dekina,yes
 walk,ùlẹ,"lulẹ,ulę ele",Manasseh,Dekina,yes
 laugh,ányí,"nyanyi,anyi enyi",Manasseh,Dekina,yes
 cry,ákwú,"akwu,ukwa",Manasseh,Dekina,yes
 hot,ẹkpùná,"ẹkpuna,ukpuna",Manasseh,Dekina,yes
 cold,ẹridọdọ́,"afu/ẹridọdọ,uridọdọ",Manasseh,Dekina,yes
 big,lìlẹ́,"unana,enana,nana",Manasseh,Dekina,yes
-small,kẹ̀kẹ̀lẹ̀,"kekele,enya,kekele/ọree",Manasseh,Dekina,yes
-old,ìgbẹ̀lẹ̀,"igbele,igbele,ogbo/ogijo",Manasseh,Dekina,yes
-new,ẹtìtó,"etitọ,etitọ",Manasseh,Dekina,yes
+small,kẹ̀kẹ̀lẹ̀,"kekele,enya",Manasseh,Dekina,yes
+old,ìgbẹ̀lẹ̀,"igbele,ogbo/ogijo",Manasseh,Dekina,yes
+new,ẹtìtó,"etitọ",Manasseh,Dekina,yes
 beautiful,álẹfíá,"unyọ,alefia,igbẹlẹ/utọ/unyọ",Manasseh,Dekina,yes
 strong,ùkpàhiù,"ẹgbiti,ukpahiu,ugbiti",Manasseh,Dekina,yes
+head,ojí,"oji,ọji",Manasseh,Dekina,yes
+eye,ejù,"eju,èju",Manasseh,Dekina,yes
+ear,etì,"eti,èti",Manasseh,Dekina,yes
+nose,ínmo,"iñmọ,inmọ",Manasseh,Dekina,yes
+mouth,álu,"alu",Manasseh,Dekina,yes
+tongue,ùkpalù,"ukpalu,upkalu",Manasseh,Dekina,yes
+tooth,enyì,"enyi",Manasseh,Dekina,yes
+neck,olọ,"ọfa",Manasseh,Dekina,yes
+shoulder,ojíká,"ojika",Manasseh,Dekina,yes
+hand,owo,"ọwọ",Manasseh,Dekina,yes
+finger,om'owo,"anyiga,anyíga",Manasseh,Dekina,yes
+chest,edó,"agbẹdọ,edọ",Manasseh,Dekina,yes
+stomach,efù,"efu",Manasseh,Dekina,yes
+back,ubí,"ubi",Manasseh,Dekina,yes
+leg,èrè,"ẹrẹ",Manasseh,Dekina,yes
+knee,okwukwu,,Manasseh,Dekina,yes
+foot,om'ere,"adab'ẹrẹ,apata ẹrẹ",Manasseh,Dekina,yes
+sky,ojalẹ,"akpa",Manasseh,Dekina,yes
+star,íláwo,"ilawo,awo",Manasseh,Dekina,yes
+cloud,ákpá,"akpa",Manasseh,Dekina,yes
+wind,afù,"afu",Manasseh,Dekina,yes
+river,ájí,"aji",Manasseh,Dekina,yes
+tree,olí,"oli",Manasseh,Dekina,yes
+leaf,eñmi,"emè",Manasseh,Dekina,yes
+flower,ododó,"ododo",Manasseh,Dekina,yes
+stone,okutá,"okwuta,okputa",Manasseh,Dekina,yes
+mountain,ùwó,"uwo",Manasseh,Dekina,yes
+farm,okó,"oko",Manasseh,Dekina,yes
+red,ekpìkpa,"ekpikpa,eikpa",Manasseh,Dekina,yes
+white,efùfù,"efufu",Manasseh,Dekina,yes
+black,edùdù,"edudu",Manasseh,Dekina,yes
+blue,igẹluwẹ,"odo",Manasseh,Dekina,yes
+green,omí eñmi,"odufa",Manasseh,Dekina,yes
+yellow,odo,,Manasseh,Dekina,yes
+cow,okwùno,"okunọ,okùno",Manasseh,Dekina,yes
+goat,ewọ,"ewo",Manasseh,Dekina,yes
+chicken,ajùwe,"ejuwẹ,ajuwe",Manasseh,Dekina,yes
+fish,èjá,"ẹja",Manasseh,Dekina,yes
+snake,èjo,"ejo",Manasseh,Dekina,yes
+bird,èwè,"ẹwẹ,ẹwẹ̀",Manasseh,Dekina,yes
+elephant,adagbà,"adagba",Manasseh,Dekina,yes
+lion,idú,"idu",Manasseh,Dekina,yes
+happy,edó èbo,"edẹbọ,ẹdèbo",Manasseh,Dekina,yes
+sad,edó èkpábíè,"edẹkpabiẹ,ẹdopkabiẹ̀",Manasseh,Dekina,yes
+angry,uwèdo,"edẹfuulu,èwẹdọ",Manasseh,Dekina,yes
+afraid,ókpó,"okpo,opko",Manasseh,Dekina,yes
+tired,olá ekpa,"uhia,ugbogwu,ufowọla",Manasseh,Dekina,yes
+hungry,èbí,"ebi",Manasseh,Dekina,yes
+thirsty,olugbẹ,"alugbẹ",Manasseh,Dekina,yes
+chair,úgwugwú,"ugwugwu",Manasseh,Dekina,yes
+table,itẹbulù,"itebulu",Manasseh,Dekina,yes
+door,ọná,"ọna",Manasseh,Dekina,yes
+window,ilabulẹ,"opè",Manasseh,Dekina,yes
+bed,àtẹ,"atẹ",Manasseh,Dekina,yes
+pot,ùcha,"ucha",Manasseh,Dekina,yes
+cup,ùkpa,"upka",Manasseh,Dekina,yes
+plate,òchibu,"ugba,ùgbà",Manasseh,Dekina,yes
+spoon,ukodẹ,"ukọdẹ,ukọ",Manasseh,Dekina,yes
+knife,obé,"ọbẹ",Manasseh,Dekina,yes
+rice,óchikapà,"ochikapa",Manasseh,Dekina,yes
+yam,ùchù,"uchu",Manasseh,Dekina,yes
+beans,egwà,"ẹgwa",Manasseh,Dekina,yes
+palm oil,ẹkpó-oje,"èpko-ọjẹ",Manasseh,Dekina,yes
+meat,ẹla,,Manasseh,Dekina,yes
+soup,óbo,,Manasseh,Dekina,yes
+salt,omú,"omu",Manasseh,Dekina,yes
+pepper,àkpọ̀,"akpọ",Manasseh,Dekina,yes
+fruit,ẹrò,"ẹroli",Manasseh,Dekina,yes
+milk,òmi-enya,"imiliki",Manasseh,Dekina,yes
+egg,ẹge,"ẹgẹ",Manasseh,Dekina,yes
+bread,àkala,"iburẹdi",Manasseh,Dekina,yes
+corn,ákpá,"akpa",Manasseh,Dekina,yes
+groundnut,òpa,"ọpa",Manasseh,Dekina,yes
+banana,ógedẹ,"ọgẹdẹ",Manasseh,Dekina,yes
+wife,óya,,Manasseh,Dekina,yes
+baby,óma,,Manasseh,Dekina,yes
+grandfather,òkwo-enekẹlẹ,"ókwọ-ọnẹkẹlẹ",Manasseh,Dekina,yes
+grandmother,òkwo-onpbulẹ,"ókwọ-onobulẹ",Manasseh,Dekina,yes
+uncle,òmenyi,"ọmenyi",Manasseh,Dekina,yes
+aunt,òmehi,"omehi",Manasseh,Dekina,yes
+teacher,àkoneñwu,"akukọ,àkukọ",Manasseh,Dekina,yes
+student,òma-ukọchẹ,,Manasseh,Dekina,yes
+chief,onù,"madaki",Manasseh,Dekina,yes
+farmer,àluchẹ,"aluchẹ",Manasseh,Dekina,yes
+doctor,obọchi,"idokitọ",Manasseh,Dekina,yes
+soldier,ajọgwu,"ajogwu",Manasseh,Dekina,yes
+stranger,ènè ejaduña,"ononojo",Manasseh,Dekina,yes
+neighbour,ẹkẹjí-wè,"ẹnẹ-adogbè",Manasseh,Dekina,yes
+elder,ògijo,"ogijo",Manasseh,Dekina,yes
+think,èkpibe,"kpibe",Manasseh,Dekina,yes
+remember,èrewa,"reya",Manasseh,Dekina,yes
+forget,ègbènyo,"gbenyọ",Manasseh,Dekina,yes
+teach,èko-ònẹ-eñwu,"kọ",Manasseh,Dekina,yes
+help,atekó,"atẹko",Manasseh,Dekina,yes
+fight,ujá,"uja",Manasseh,Dekina,yes
+play,ìya,"iya",Manasseh,Dekina,yes
+dance,ìdo,"ido",Manasseh,Dekina,yes
+sing,ẹli,"keli",Manasseh,Dekina,yes
+carry,ẹdu,"du",Manasseh,Dekina,yes
+push,ẹkechè,"kọchẹ",Manasseh,Dekina,yes
+pull,ẹfo,"wọ",Manasseh,Dekina,yes
+open,èbí,"bi",Manasseh,Dekina,yes
+close,ẹrè,"re",Manasseh,Dekina,yes
+return,ẹdabi wa,"dudabi",Manasseh,Dekina,yes
+left,àwohi,"awoi,afoi",Manasseh,Dekina,yes
+right,áwoto,"awọtọ",Manasseh,Dekina,yes
+up,atẹ́,"atẹ",Manasseh,Dekina,yes
+down,oganè,"ọganẹ",Manasseh,Dekina,yes
+here,ẹmì,"emi",Manasseh,Dekina,yes
+there,ọmó,"ọmọ",Manasseh,Dekina,yes
+now,abajọ-i,"abajoi,ajoi",Manasseh,Dekina,yes
+later,ídèpẹ̀,"edẹpẹ",Manasseh,Dekina,yes
+always,ẹgbadù,"ikodu",Manasseh,Dekina,yes
+never,gbegbelẹ,"otitala",Manasseh,Dekina,yes
+early,ẹ tákpá,"ika",Manasseh,Dekina,yes
+late,ẹ chèdù,"ekpikobiẹ",Manasseh,Dekina,yes
+before,takì,"kwobi",Manasseh,Dekina,yes
+after,ubí ánè,"ubianẹ",Manasseh,Dekina,yes
+soon,í bo gbàne gén,"emẹranẹ",Manasseh,Dekina,yes
+sand,ìkete,"ẹkẹtẹ,èlányí",Manasseh,Dekina,yes
+grass,ègbè,,Manasseh,Dekina,yes
+bush,ókó,"éfoko",Manasseh,Dekina,yes
+forest,ókó jimm,"égbili",Manasseh,Dekina,yes
+sea,aji,"itekwu",Manasseh,Dekina,yes
+lake,ohímíní,"apata",Manasseh,Dekina,yes
+hill,ùwó,"uwo",Manasseh,Dekina,yes
+smoke,ódùdù,"odudu",Manasseh,Dekina,yes
+ash,èlulu,,Manasseh,Dekina,yes
+mud,èpío,"ama",Manasseh,Dekina,yes
+dust,èbutu,,Manasseh,Dekina,yes
+shadow,ojíjí,"ojiji",Manasseh,Dekina,yes
+how are you?,àb' elẹ?,"ab'ele?",Manasseh,Dekina,yes
+i am fine,ù chóla fíá,"uchugbede",Manasseh,Dekina,yes
+what is your name?,eñwù ch' odu wè?,"ẹnwu choduwẹ?",Manasseh,Dekina,yes
+where are you going?,ùgbó ẹlo?,"ugbo ẹlo?",Manasseh,Dekina,yes
+come back,dábí wá,"wèmi",Manasseh,Dekina,yes
+i am hungry,èbí ákpá mi,"ebi akpa mi",Manasseh,Dekina,yes
+i am tired,olá mí chè kpa,"ọlami chẹ kpa",Manasseh,Dekina,yes
+thank you very much,wola ùkọla mi,"wọla ukọlọ",Manasseh,Dekina,yes
+god bless you,ojo kí dènyo ñwe,"ọjọ kidenyọ wẹ",Manasseh,Dekina,yes
+i love you,ná fedọ wẹ,"nafẹdọ wẹ",Manasseh,Dekina,yes
+where is the market?,ùgbó óñwù ájá lè dẹ?,"ugbo aja dẹ?",Manasseh,Dekina,yes
+what is the price?,ónù ch' ájá ñwù?,"onu chẹjẹnwu?",Manasseh,Dekina,yes
+i do not understand,í mẹru mì eju'n,"inẹru mi èjunwu",Manasseh,Dekina,yes
+please help me,chatekó mì,"agba chatẹkomi",Manasseh,Dekina,yes
+have a good day,eñini kì nyó ñwe,"enyọ kí dẹ kpai uwẹ engini",Manasseh,Dekina,yes
+chair,ugwugwu,,Ramat,Kogi East Agbale,yes
+table,itebulu,,Ramat,Kogi East Agbale,yes
+door,ọna,,Ramat,Kogi East Agbale,yes
+window,opè,,Ramat,Kogi East Agbale,yes
+bed,atẹ,,Ramat,Kogi East Agbale,yes
+pot,ucha,,Ramat,Kogi East Agbale,yes
+cup,upka,,Ramat,Kogi East Agbale,yes
+plate,ugba,,Ramat,Kogi East Agbale,yes
+spoon,ukọdẹ,"ukọ",Ramat,Kogi East Agbale,yes
+knife,ọbẹ,,Ramat,Kogi East Agbale,yes
+rice,ochikapa,,Ramat,Kogi East Agbale,yes
+yam,uchu,,Ramat,Kogi East Agbale,yes
+beans,ẹgwa,,Ramat,Kogi East Agbale,yes
+palm oil,èpko-ọjẹ,,Ramat,Kogi East Agbale,yes
+meat,ẹla,,Ramat,Kogi East Agbale,yes
+soup,óbo,,Ramat,Kogi East Agbale,yes
+salt,omu,,Ramat,Kogi East Agbale,yes
+pepper,akpọ,,Ramat,Kogi East Agbale,yes
+fruit,ẹroli,,Ramat,Kogi East Agbale,yes
+milk,imiliki,,Ramat,Kogi East Agbale,yes
+egg,ẹgẹ,,Ramat,Kogi East Agbale,yes
+bread,iburẹdi,,Ramat,Kogi East Agbale,yes
+corn,akpa,,Ramat,Kogi East Agbale,yes
+groundnut,ọpa,,Ramat,Kogi East Agbale,yes
+banana,ọgẹdẹ,,Ramat,Kogi East Agbale,yes
+wife,ọya,,Ramat,Kogi East Agbale,yes
+baby,ọma,,Ramat,Kogi East Agbale,yes
+grandfather,ókwọ-ọnẹkẹlẹ,,Ramat,Kogi East Agbale,yes
+grandmother,ókwọ-onobulẹ,,Ramat,Kogi East Agbale,yes
+uncle,ọmenyi,,Ramat,Kogi East Agbale,yes
+aunt,omehi,,Ramat,Kogi East Agbale,yes
+teacher,akukọ,,Ramat,Kogi East Agbale,yes
+student,ọma-ukọchẹ,,Ramat,Kogi East Agbale,yes
+chief,madaki,,Ramat,Kogi East Agbale,yes
+farmer,aluchẹ,,Ramat,Kogi East Agbale,yes
+doctor,idokitọ,,Ramat,Kogi East Agbale,yes
+soldier,ajogwu,,Ramat,Kogi East Agbale,yes
+stranger,ononojo,,Ramat,Kogi East Agbale,yes
+neighbour,ẹnẹ-adogbè,,Ramat,Kogi East Agbale,yes
+elder,ogijo,,Ramat,Kogi East Agbale,yes
+think,kpibe,,Ramat,Kogi East Agbale,yes
+remember,reya,,Ramat,Kogi East Agbale,yes
+forget,gbenyọ,,Ramat,Kogi East Agbale,yes
+teach,kọ,,Ramat,Kogi East Agbale,yes
+help,atẹko,,Ramat,Kogi East Agbale,yes
+fight,uja,,Ramat,Kogi East Agbale,yes
+play,iya,,Ramat,Kogi East Agbale,yes
+dance,ido,,Ramat,Kogi East Agbale,yes
+sing,keli,,Ramat,Kogi East Agbale,yes
+carry,du,,Ramat,Kogi East Agbale,yes
+push,kọchẹ,,Ramat,Kogi East Agbale,yes
+pull,wọ,,Ramat,Kogi East Agbale,yes
+open,bi,,Ramat,Kogi East Agbale,yes
+close,re,,Ramat,Kogi East Agbale,yes
+return,dudabi,,Ramat,Kogi East Agbale,yes
+left,awoi,"afoi",Ramat,Kogi East Agbale,yes
+right,awọtọ,,Ramat,Kogi East Agbale,yes
+up,atẹ,,Ramat,Kogi East Agbale,yes
+down,ọganẹ,,Ramat,Kogi East Agbale,yes
+here,emi,,Ramat,Kogi East Agbale,yes
+there,ọmọ,,Ramat,Kogi East Agbale,yes
+now,abajoi,"ajoi",Ramat,Kogi East Agbale,yes
+later,edẹpẹ,"chẹgbatugba",Ramat,Kogi East Agbale,yes
+always,ikodu,,Ramat,Kogi East Agbale,yes
+never,otitala,,Ramat,Kogi East Agbale,yes
+early,ika,,Ramat,Kogi East Agbale,yes
+late,ekpikobiẹ,,Ramat,Kogi East Agbale,yes
+before,kwobi,,Ramat,Kogi East Agbale,yes
+after,ubianẹ,,Ramat,Kogi East Agbale,yes
+soon,emẹranẹ,,Ramat,Kogi East Agbale,yes
+sand,ẹkẹtẹ,,Ramat,Kogi East Agbale,yes
+grass,ègbe,,Ramat,Kogi East Agbale,yes
+bush,éfoko,,Ramat,Kogi East Agbale,yes
+forest,égbili,,Ramat,Kogi East Agbale,yes
+sea,itekwu,,Ramat,Kogi East Agbale,yes
+lake,apata,,Ramat,Kogi East Agbale,yes
+hill,uwo,,Ramat,Kogi East Agbale,yes
+smoke,odudu,,Ramat,Kogi East Agbale,yes
+ash,èlulu,,Ramat,Kogi East Agbale,yes
+mud,ama,,Ramat,Kogi East Agbale,yes
+dust,ébutu,,Ramat,Kogi East Agbale,yes
+shadow,ojiji,,Ramat,Kogi East Agbale,yes
+how are you?,ab'ele?,,Ramat,Kogi East Agbale,yes
+i am fine,uchugbede,,Ramat,Kogi East Agbale,yes
+what is your name?,ẹnwu choduwẹ?,,Ramat,Kogi East Agbale,yes
+where are you going?,ugbo ẹlo?,,Ramat,Kogi East Agbale,yes
+come back,wèmi,,Ramat,Kogi East Agbale,yes
+i am hungry,ebi akpa mi,,Ramat,Kogi East Agbale,yes
+i am tired,ọlami chẹ kpa,,Ramat,Kogi East Agbale,yes
+thank you very much,wọla ukọlọ,,Ramat,Kogi East Agbale,yes
+god bless you,ọjọ kidenyọ wẹ,,Ramat,Kogi East Agbale,yes
+i love you,nafẹdọ wẹ,,Ramat,Kogi East Agbale,yes
+where is the market?,ugbo aja dẹ?,,Ramat,Kogi East Agbale,yes
+what is the price?,onu chẹjẹnwu?,,Ramat,Kogi East Agbale,yes
+i do not understand,inẹru mi èjunwu,,Ramat,Kogi East Agbale,yes
+please help me,agba chatẹkomi,,Ramat,Kogi East Agbale,yes
+have a good day,enyọ kí dẹ kpai uwẹ engini,,Ramat,Kogi East Agbale,yes
+head,oji,"ọji",Jude,Dekina,yes
+eye,eju,"èju",Jude,Dekina,yes
+ear,eti,"èti",Jude,Dekina,yes
+nose,iñmọ,"inmọ",Jude,Dekina,yes
+mouth,alu,,Jude,Dekina,yes
+tongue,ukpalu,"upkalu",Jude,Dekina,yes
+tooth,enyi,"enyì",Jude,Dekina,yes
+neck,ọfa,"olọ",Jude,Dekina,yes
+shoulder,ojika,"ojíká",Jude,Dekina,yes
+hand,ọwọ,"owo",Jude,Dekina,yes
+finger,anyiga,"anyíga",Jude,Dekina,yes
+chest,agbẹdọ,"edọ,edó",Jude,Dekina,yes
+stomach,efu,"efù",Jude,Dekina,yes
+back,ubi,"ubí",Jude,Dekina,yes
+leg,ẹrẹ,"èrè",Jude,Dekina,yes
+knee,okwukwu,,Jude,Dekina,yes
+foot,adab'ẹrẹ,"om'ere,apata ẹrẹ",Jude,Dekina,yes
+sky,akpa,"ojalẹ",Jude,Dekina,yes
+star,ilawo,"awo,íláwo",Jude,Dekina,yes
+cloud,akpa,,Jude,Dekina,yes
+wind,afu,"afù",Jude,Dekina,yes
+river,aji,"ájí",Jude,Dekina,yes
+tree,oli,"olí",Jude,Dekina,yes
+leaf,eñmi,"emè",Jude,Dekina,yes
+flower,ododo,"ododó",Jude,Dekina,yes
+stone,okwuta,"okutá,okputa",Jude,Dekina,yes
+mountain,uwo,"ùwó",Jude,Dekina,yes
+farm,oko,"okó",Jude,Dekina,yes
+red,ekpikpa,"ekpìkpa,eikpa",Jude,Dekina,yes
+white,efufu,"efùfù",Jude,Dekina,yes
+black,edudu,"edùdù",Jude,Dekina,yes
+blue,igẹluwẹ,,Jude,Dekina,yes
+green,odufa,"omí eñmi",Jude,Dekina,yes
+yellow,odo,,Jude,Dekina,yes
+cow,okwunọ,"okwùno,okunọ",Jude,Dekina,yes
+goat,ewo,"ewọ",Jude,Dekina,yes
+chicken,ejuwẹ,"ajùwe,ajuwe",Jude,Dekina,yes
+fish,ẹja,"èjá",Jude,Dekina,yes
+snake,ejo,"èjo",Jude,Dekina,yes
+bird,ẹwẹ,"èwè,ẹwẹ̀",Jude,Dekina,yes
+elephant,adagba,"adagbà",Jude,Dekina,yes
+lion,idu,"idú",Jude,Dekina,yes
+happy,edẹbọ,"edó èbo,ẹdèbo",Jude,Dekina,yes
+sad,edẹkpabiẹ,"edó èkpábíè,ẹdopkabiẹ̀",Jude,Dekina,yes
+angry,edẹfuulu,"uwèdo,èwẹdọ",Jude,Dekina,yes
+afraid,okpo,"ókpó,ejiji",Jude,Dekina,yes
+tired,uhia,"ol'ẹkpa,ugbogwu",Jude,Dekina,yes
+hungry,ebi,"èbí",Jude,Dekina,yes
+thirsty,alugbẹ,"olugbẹ",Jude,Dekina,yes
+head,ọji,"ọji",Ramat,Kogi East Agbale,yes
+eye,èju,"eju",Ramat,Kogi East Agbale,yes
+ear,èti,"eti",Ramat,Kogi East Agbale,yes
+nose,inmọ,"iñmọ",Ramat,Kogi East Agbale,yes
+mouth,alu,,Ramat,Kogi East Agbale,yes
+tongue,upkalu,"ukpalu",Ramat,Kogi East Agbale,yes
+tooth,ényi,"enyi",Ramat,Kogi East Agbale,yes
+neck,ọlọ,"ọfa",Ramat,Kogi East Agbale,yes
+shoulder,ojika,"ojíká",Ramat,Kogi East Agbale,yes
+hand,ọwọ,"owo",Ramat,Kogi East Agbale,yes
+finger,anyíga,"anyiga",Ramat,Kogi East Agbale,yes
+chest,edọ,"agbẹdọ,edó",Ramat,Kogi East Agbale,yes
+stomach,efu,"efù",Ramat,Kogi East Agbale,yes
+back,ubi,"ubí",Ramat,Kogi East Agbale,yes
+leg,ẹrẹ,"èrè",Ramat,Kogi East Agbale,yes
+knee,òkwukwu,"okwukwu",Ramat,Kogi East Agbale,yes
+foot,apata ẹrẹ,"adab'ẹrẹ,om'ere",Ramat,Kogi East Agbale,yes
+sky,ojale,"akpa,ojalẹ",Ramat,Kogi East Agbale,yes
+star,ilawo,"awo,íláwo",Ramat,Kogi East Agbale,yes
+cloud,akpa,,Ramat,Kogi East Agbale,yes
+wind,afu,"afù",Ramat,Kogi East Agbale,yes
+river,aji,"ájí",Ramat,Kogi East Agbale,yes
+tree,oli,"olí",Ramat,Kogi East Agbale,yes
+leaf,emè,"eñmi",Ramat,Kogi East Agbale,yes
+flower,ododo,"ododó",Ramat,Kogi East Agbale,yes
+stone,okputa,"okwuta,okutá",Ramat,Kogi East Agbale,yes
+mountain,uwo,"ùwó",Ramat,Kogi East Agbale,yes
+farm,ókò,"oko,okó",Ramat,Kogi East Agbale,yes
+rain,ọmi ówò,"omi-ojale,omi elọ",Ramat,Kogi East Agbale,yes
+red,eikpa,"ekpikpa,ekpìkpa",Ramat,Kogi East Agbale,yes
+white,efufu,"efùfù",Ramat,Kogi East Agbale,yes
+black,edudu,"edùdù",Ramat,Kogi East Agbale,yes
+blue,odo,,Ramat,Kogi East Agbale,yes
+green,odufa,"omí eñmi",Ramat,Kogi East Agbale,yes
+cow,okunọ,"okwunọ,okwùno",Ramat,Kogi East Agbale,yes
+goat,ewo,"ewọ",Ramat,Kogi East Agbale,yes
+chicken,ajuwe,"ejuwẹ,ajùwe",Ramat,Kogi East Agbale,yes
+fish,ẹja,"èjá",Ramat,Kogi East Agbale,yes
+snake,ejo,"èjo",Ramat,Kogi East Agbale,yes
+bird,ẹwẹ̀,"èwè,ẹwẹ",Ramat,Kogi East Agbale,yes
+elephant,adagba,"adagbà",Ramat,Kogi East Agbale,yes
+lion,idu,"idú",Ramat,Kogi East Agbale,yes
+happy,ẹdèbo,"edẹbọ,edó èbo",Ramat,Kogi East Agbale,yes
+sad,ẹdopkabiẹ̀,"edẹkpabiẹ,edó èkpábíè",Ramat,Kogi East Agbale,yes
+angry,èwẹdọ,"edẹfuulu,uwèdo",Ramat,Kogi East Agbale,yes
+afraid,opko,"okpo,ókpó",Ramat,Kogi East Agbale,yes
+tired,ugbogwu,"ufowọla,uhia",Ramat,Kogi East Agbale,yes
+hungry,ebi,"èbí",Ramat,Kogi East Agbale,yes
+thirsty,olugbẹ,"alugbẹ",Ramat,Kogi East Agbale,yes
