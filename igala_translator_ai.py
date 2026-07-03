@@ -1,12 +1,15 @@
- # English - Igala Translator (AI-Powered)
+# English - Igala Translator (AI-Powered)
 # Original code by: Sani Samuel Ojochegbe
 # Igala language contributor: Ann (and her mum)
 # Built with AI assistance
 
+import os
 import google.generativeai as genai
 
-# Put your Gemini API key here
-genai.configure(api_key="AQ.Ab8RN6LIv9vfXXiPNVc5BgJHr_nYVjg7HbbBbxkHdrlVqY3XRg")
+api_key = os.environ.get("GEMINI_API_KEY")
+if not api_key:
+    raise EnvironmentError("GEMINI_API_KEY secret is not set. Add it via Replit Secrets.")
+genai.configure(api_key=api_key)
 
 # Verified Igala dictionary by Ann
 translation_rules = {
