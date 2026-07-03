@@ -4,81 +4,26 @@
 # Built with AI assistance
 
 import os
-from google import genai
+import csv
+from groq import Groq
 
-api_key = os.environ.get("GEMINI_API_KEY")
+api_key = os.environ.get("GROQ_API_KEY")
 if not api_key:
-    raise EnvironmentError("GEMINI_API_KEY secret is not set. Add it via Replit Secrets.")
-client = genai.Client(api_key=api_key)
+    raise EnvironmentError("GROQ_API_KEY secret is not set. Add it via Replit Secrets.")
+client = Groq(api_key=api_key)
 
-# Verified Igala dictionary by Ann
-translation_rules = {
-    "hello": "agba",
-    "good morning": "wola odudu",
-    "good afternoon": "ọlọ́rọka",
-    "good evening": "ọlá'nẹ",
-    "good night": "wola ane",
-    "welcome": "ọlalẹ",
-    "thank you": "wolu'kọlọ",
-    "please": "awa",
-    "sorry": "nago",
-    "yes": "i-i",
-    "no": "ọda-aa",
-    "goodbye": "chẹ́gbatugba",
-    "mother": "iye",
-    "father": "ata",
-    "child": "ọma",
-    "brother": "ọmaye ọnẹkẹle",
-    "sister": "ọmaye ọnọbule",
-    "friend": "onuku",
-    "man": "ọnẹkẹle",
-    "woman": "ọnọbule",
-    "king": "ọnu",
-    "person": "onẹ",
-    "eat": "jẹ",
-    "drink": "mo",
-    "sleep": "ólu",
-    "wake up": "j'ólu",
-    "go": "lo",
-    "come": "wa",
-    "run": "rule",
-    "sit": "gwane",
-    "stand": "dago",
-    "want": "tenẹ",
-    "love": "fẹdo",
-    "see": "li",
-    "give": "du",
-    "take": "gbà",
-    "buy": "la",
-    "sell": "ta",
-    "work": "ukọlọ",
-    "pray": "aduwa",
-    "cook": "yẹnwu",
-    "wash": "gwe",
-    "food": "ujẹnwu",
-    "water": "omi",
-    "house": "unyi",
-    "road": "ọna",
-    "money": "ọ́kọ́",
-    "book": "otakada",
-    "clothes": "ukpo",
-    "fire": "una",
-    "land": "ane",
-    "god": "ọjọ",
-    "one": "ényẹ́",
-    "two": "èjì",
-    "three": "ẹ̀ta",
-    "four": "ẹ̀lẹ̀",
-    "five": "ẹ̀lú",
-    "today": "eñini",
-    "tomorrow": "ọna",
-    "yesterday": "ọnalẹ",
-    "morning": "òdùdu",
-    "night": "anẹ",
-    "canoe": "ọkó èjomi",
-    "husband": "òkọ",
-    "millipede": "ọkọ",
-}
+def load_words_from_csv(filename):
+    translation_rules = {}
+    with open(filename, encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            english = row["english"].lower().strip()
+            igala = row["igala_primary"].strip()
+            if english and igala:
+                translation_rules[english] = igala
+    return translation_rules
+
+translation_rules = load_words_from_csv("igala_words.csv")
 
 def translate_with_ai(phrase):
     # Build the dictionary as a reference for the AI
@@ -100,11 +45,11 @@ Rules:
 - Return ONLY the Igala translation, nothing else
 - Preserve proper Igala tone marks"""
 
-    response = client.models.generate_content(
-        model="gemini-2.0-flash",
-        contents=prompt
+    response = client.chat.completions.create(
+        model="llama-3.1-8b-instant",
+        messages=[{"role": "user", "content": prompt}]
     )
-    return response.text.strip()
+    return response.choices[0].message.content.strip()
 
 print("=" * 40)
 print("  English to Igala Translator (AI)")
