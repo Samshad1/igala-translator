@@ -40,10 +40,11 @@ Use this verified Igala dictionary as your reference:
 Translate this English text to Igala: "{phrase}"
 
 Rules:
-- Use the dictionary words above as much as possible
-- For words not in the dictionary, use your knowledge of Igala
-- Return ONLY the Igala translation, nothing else
-- Preserve proper Igala tone marks"""
+1. The word 'I' in Igala has multiple forms depending on context: 'omi' (I am going/movement), 'na' (I want/action), 'u' (I love/feelings), 'un' (I said/speech). Choose the correct one based on the sentence.
+2. Words in Igala often connect and merge together — don't just swap word by word, construct a natural flowing Igala sentence.
+3. Always use the verified dictionary words provided above as your primary reference.
+4. For words not in the dictionary, make your best guess based on Igala language patterns.
+5. Return ONLY the Igala translation, nothing else."""
 
     response = client.chat.completions.create(
         model="llama-3.1-8b-instant",
