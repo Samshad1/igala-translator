@@ -1,81 +1,29 @@
- # English - Igala Translator (AI-Powered)
+# English - Igala Translator (AI-Powered)
 # Original code by: Sani Samuel Ojochegbe
 # Igala language contributor: Ann (and her mum)
 # Built with AI assistance
 
-import google.generativeai as genai
+import os
+import csv
+from groq import Groq
 
-# Put your Gemini API key here
-genai.configure(api_key="Paste_your_api_key_here")
+api_key = os.environ.get("GROQ_API_KEY")
+if not api_key:
+    raise EnvironmentError("GROQ_API_KEY secret is not set. Add it via Replit Secrets.")
+client = Groq(api_key=api_key)
 
-# Verified Igala dictionary by Ann
-translation_rules = {
-    "hello": "agba",
-    "good morning": "wola odudu",
-    "good afternoon": "ọlọ́rọka",
-    "good evening": "ọlá'nẹ",
-    "good night": "wola ane",
-    "welcome": "ọlalẹ",
-    "thank you": "wolu'kọlọ",
-    "please": "awa",
-    "sorry": "nago",
-    "yes": "i-i",
-    "no": "ọda-aa",
-    "goodbye": "chẹ́gbatugba",
-    "mother": "iye",
-    "father": "ata",
-    "child": "ọma",
-    "brother": "ọmaye ọnẹkẹle",
-    "sister": "ọmaye ọnọbule",
-    "friend": "onuku",
-    "man": "ọnẹkẹle",
-    "woman": "ọnọbule",
-    "king": "ọnu",
-    "person": "onẹ",
-    "eat": "jẹ",
-    "drink": "mo",
-    "sleep": "ólu",
-    "wake up": "j'ólu",
-    "go": "lo",
-    "come": "wa",
-    "run": "rule",
-    "sit": "gwane",
-    "stand": "dago",
-    "want": "tenẹ",
-    "love": "fẹdo",
-    "see": "li",
-    "give": "du",
-    "take": "gbà",
-    "buy": "la",
-    "sell": "ta",
-    "work": "ukọlọ",
-    "pray": "aduwa",
-    "cook": "yẹnwu",
-    "wash": "gwe",
-    "food": "ujẹnwu",
-    "water": "omi",
-    "house": "unyi",
-    "road": "ọna",
-    "money": "ọ́kọ́",
-    "book": "otakada",
-    "clothes": "ukpo",
-    "fire": "una",
-    "land": "ane",
-    "god": "ọjọ",
-    "one": "ényẹ́",
-    "two": "èjì",
-    "three": "ẹ̀ta",
-    "four": "ẹ̀lẹ̀",
-    "five": "ẹ̀lú",
-    "today": "eñini",
-    "tomorrow": "ọna",
-    "yesterday": "ọnalẹ",
-    "morning": "òdùdu",
-    "night": "anẹ",
-    "canoe": "ọkó èjomi",
-    "husband": "òkọ",
-    "millipede": "ọkọ",
-}
+def load_words_from_csv(filename):
+    translation_rules = {}
+    with open(filename, encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            english = row["english"].lower().strip()
+            igala = row["igala_primary"].strip()
+            if english and igala:
+                translation_rules[english] = igala
+    return translation_rules
+
+translation_rules = load_words_from_csv("igala_words.csv")
 
 def translate_with_ai(phrase):
     # Build the dictionary as a reference for the AI
@@ -92,14 +40,17 @@ Use this verified Igala dictionary as your reference:
 Translate this English text to Igala: "{phrase}"
 
 Rules:
-- Use the dictionary words above as much as possible
-- For words not in the dictionary, use your knowledge of Igala
-- Return ONLY the Igala translation, nothing else
-- Preserve proper Igala tone marks"""
+1. The word 'I' in Igala has multiple forms depending on context: 'omi' (I am going/movement), 'na' (I want/action), 'u' (I love/feelings), 'un' (I said/speech). Choose the correct one based on the sentence.
+2. Words in Igala often connect and merge together — don't just swap word by word, construct a natural flowing Igala sentence.
+3. Always use the verified dictionary words provided above as your primary reference.
+4. For words not in the dictionary, make your best guess based on Igala language patterns.
+5. Return ONLY the Igala translation, nothing else."""
 
-    model = genai.GenerativeModel("gemini-2.0-flash")
-    response = model.generate_content(prompt)
-    return response.text.strip()
+    response = client.chat.completions.create(
+        model="llama-3.1-8b-instant",
+        messages=[{"role": "user", "content": prompt}]
+    )
+    return response.choices[0].message.content.strip()
 
 print("=" * 40)
 print("  English to Igala Translator (AI)")
