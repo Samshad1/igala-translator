@@ -21,9 +21,14 @@ args = "Start application"
 name = "Start application"
 author = "agent"
 
+[workflows.workflow.metadata]
+outputType = "webview"
+
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "python igala_translator.py"
+args = "python server.py"
+waitForPort = 8080
 
-[workflows.workflow.metadata]
-outputType = "console"
+[[ports]]
+localPort = 8080
+externalPort = 80
