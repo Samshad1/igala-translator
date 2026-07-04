@@ -6,7 +6,7 @@
 import google.generativeai as genai
 
 # Put your Gemini API key here
-genai.configure(api_key="AQ.Ab8RN6LIv9vfXXiPNVc5BgJHr_nYVjg7HbbBbxkHdrlVqY3XRg")
+genai.configure(api_key="Paste_your_api_key_here")
 
 # Verified Igala dictionary by Ann
 translation_rules = {
