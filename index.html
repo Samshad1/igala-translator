@@ -528,6 +528,90 @@
       margin-top: 8px;
     }
 
+    /* ── SUGGEST CORRECTION ── */
+    .suggest-bar {
+      padding: 0 24px 16px;
+      display: none;
+    }
+
+    .suggest-bar.visible { display: block; }
+
+    .suggest-toggle {
+      background: none;
+      border: none;
+      color: var(--text-light);
+      font-size: 0.75rem;
+      cursor: pointer;
+      text-decoration: underline;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .suggest-toggle:hover { color: var(--terra); }
+
+    .suggest-form {
+      margin-top: 12px;
+      display: none;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .suggest-form.open { display: flex; }
+
+    .suggest-input {
+      flex: 1;
+      min-width: 200px;
+      padding: 10px 12px;
+      border: 1px solid rgba(27, 58, 45, 0.2);
+      border-radius: 2px;
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    .suggest-input:focus { border-color: var(--green); }
+
+    .suggest-submit {
+      padding: 10px 20px;
+      background: var(--terra);
+      border: none;
+      border-radius: 2px;
+      color: white;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .suggest-submit:hover { opacity: 0.85; }
+
+    .suggest-thanks {
+      font-size: 0.78rem;
+      color: var(--green);
+      font-style: italic;
+      display: none;
+    }
+
+    .suggest-thanks.visible { display: block; }
+
+    /* Mode badge */
+    .mode-badge {
+      font-size: 0.62rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 2px;
+      margin-left: 8px;
+    }
+
+    .mode-badge.dictionary {
+      background: rgba(200, 150, 42, 0.15);
+      color: var(--gold);
+    }
+
     /* ── ANIMATIONS ── */
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     @keyframes pulse {
@@ -604,8 +688,17 @@
 
     <div class="error" id="error-msg" style="display:none;"></div>
 
+    <div class="suggest-bar" id="suggest-bar">
+      <button class="suggest-toggle" onclick="toggleSuggestForm()">Is this translation wrong? Suggest a correction</button>
+      <div class="suggest-form" id="suggest-form">
+        <input type="text" class="suggest-input" id="suggest-input" placeholder="Type the correct translation here…" />
+        <button class="suggest-submit" onclick="submitSuggestion()">Send Correction</button>
+      </div>
+      <div class="suggest-thanks" id="suggest-thanks">Thank you! Your correction has been sent for review by our native speaker contributors.</div>
+    </div>
+
     <div class="action-bar">
-      <button class="translate-btn" id="translate-btn" onclick="translate()" disabled>Translate</button>
+      <button class="translate-btn" id="translate-btn" onclick="doTranslate()" disabled>Translate</button>
       <button class="icon-btn" onclick="copyOutput()" id="btn-copy" disabled>📋 Copy</button>
       <button class="icon-btn" onclick="clearAll()">✕ Clear</button>
       <span class="shortcut-hint">Ctrl + Enter to translate</span>
@@ -701,12 +794,87 @@
 </footer>
 
 <script>
-  const GROQ_API_KEY = ""; // Leave empty — user adds their key
+  const BACKEND_URL = "https://46506181-4c6e-4ee0-b588-d23551c46ff6-00-1du75y1fxm280.picard.replit.dev";
+  const DICTIONARY_URL = "https://raw.githubusercontent.com/Samshad1/igala-translator/refs/heads/main/igala_words.csv";
+
   let direction = "en_to_ig";
   let outputText = "";
-  let speakingInput = false;
-  let speakingOutput = false;
+  let lastInput = "";
+  let dictionary = {};        // english -> igala
+  let reverseDictionary = {}; // igala -> english
+  let dictionaryLoaded = false;
 
+  // ── LOAD DICTIONARY FROM GITHUB ──
+  async function loadDictionary() {
+    try {
+      const res = await fetch(DICTIONARY_URL);
+      const text = await res.text();
+      const lines = text.split("\n");
+
+      // Skip header row, parse each line
+      for (let i = 1; i < lines.length; i++) {
+        const line = lines[i].trim();
+        if (!line) continue;
+
+        // Handle quoted fields with commas inside
+        const cols = parseCSVLine(line);
+        if (cols.length >= 2) {
+          const english = cols[0].toLowerCase().trim();
+          const igala = cols[1].trim();
+          if (english && igala) {
+            dictionary[english] = igala;
+            reverseDictionary[igala.toLowerCase()] = english;
+          }
+        }
+      }
+      dictionaryLoaded = true;
+      console.log("Dictionary loaded:", Object.keys(dictionary).length, "words");
+    } catch (err) {
+      console.error("Could not load dictionary:", err);
+    }
+  }
+
+  // Simple CSV line parser that respects quotes
+  function parseCSVLine(line) {
+    const result = [];
+    let current = "";
+    let inQuotes = false;
+    for (let i = 0; i < line.length; i++) {
+      const ch = line[i];
+      if (ch === '"') {
+        inQuotes = !inQuotes;
+      } else if (ch === "," && !inQuotes) {
+        result.push(current);
+        current = "";
+      } else {
+        current += ch;
+      }
+    }
+    result.push(current);
+    return result;
+  }
+
+  // Load dictionary as soon as page opens
+  loadDictionary();
+
+  // ── DICTIONARY TRANSLATION (FALLBACK) ──
+  function dictionaryTranslate(phrase) {
+    const dict = direction === "en_to_ig" ? dictionary : reverseDictionary;
+    const lower = phrase.toLowerCase().trim();
+
+    // First try the whole phrase (for entries like "good morning")
+    if (dict[lower]) return dict[lower];
+
+    // Otherwise translate word by word
+    const words = phrase.split(/\s+/);
+    const translated = words.map(word => {
+      const clean = word.toLowerCase().replace(/[.,!?;:]/g, "");
+      return dict[clean] || word;
+    });
+    return translated.join(" ");
+  }
+
+  // ── UI FUNCTIONS ──
   function setDirection(dir) {
     direction = dir;
     document.getElementById("btn-en-ig").classList.toggle("active", dir === "en_to_ig");
@@ -732,7 +900,7 @@
   }
 
   function handleKey(e) {
-    if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) translate();
+    if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) doTranslate();
   }
 
   function showError(msg) {
@@ -750,6 +918,9 @@
     document.getElementById("output-box").innerHTML = '<span class="output-placeholder">Translation appears here…</span>';
     document.getElementById("btn-copy").disabled = true;
     document.getElementById("btn-speak-output").disabled = true;
+    document.getElementById("suggest-bar").classList.remove("visible");
+    document.getElementById("suggest-form").classList.remove("open");
+    document.getElementById("suggest-thanks").classList.remove("visible");
   }
 
   function clearAll() {
@@ -760,59 +931,83 @@
     document.getElementById("btn-speak-input").disabled = true;
   }
 
-  async function translate() {
+  function showResult(text, usedDictionary) {
+    outputText = text;
+    let badge = usedDictionary ? '<span class="mode-badge dictionary">Dictionary</span>' : '';
+    document.getElementById("output-box").innerHTML = `<div class="output-text">${text}${badge}</div>`;
+    document.getElementById("btn-copy").disabled = false;
+    document.getElementById("btn-speak-output").disabled = false;
+    document.getElementById("suggest-bar").classList.add("visible");
+  }
+
+  // ── MAIN TRANSLATE (AI with dictionary fallback) ──
+  async function doTranslate() {
     const input = document.getElementById("input-text").value.trim();
     if (!input) return;
 
+    lastInput = input;
     hideError();
     document.getElementById("output-box").innerHTML = '<div class="loading"><span></span><span></span><span></span></div>';
     document.getElementById("translate-btn").disabled = true;
+    document.getElementById("suggest-thanks").classList.remove("visible");
 
-    const dirText = direction === "en_to_ig"
-      ? "Translate the following English text to Igala."
-      : "Translate the following Igala text to English.";
-
-    const systemPrompt = `You are an expert Igala language translator specializing in the Igala language spoken in Kogi State, Nigeria.
-
-Key grammar rules:
-- "I" in Igala: use "na" for actions/wanting, "omi" for movement, "u" for feelings
-- Words in Igala connect and merge naturally — construct flowing sentences, not word-for-word swaps
-- Always use proper Igala tone marks (ọ, ẹ, á, è, etc.)
-- Return ONLY the translation, nothing else`;
-
+    // Try AI through our backend first
     try {
-      const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+      const res = await fetch(`${BACKEND_URL}/translate`, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${GROQ_API_KEY}`
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          model: "llama-3.1-8b-instant",
-          messages: [
-            { role: "system", content: systemPrompt },
-            { role: "user", content: `${dirText}\n\nText: ${input}` }
-          ],
-          max_tokens: 500,
-          temperature: 0.3
+          text: input,
+          direction: direction
         })
       });
 
       const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "AI unavailable");
 
-      if (!res.ok) throw new Error(data.error?.message || "Translation failed");
-
-      outputText = data.choices?.[0]?.message?.content?.trim() || "";
-      document.getElementById("output-box").innerHTML = `<div class="output-text">${outputText}</div>`;
-      document.getElementById("btn-copy").disabled = false;
-      document.getElementById("btn-speak-output").disabled = false;
+      const aiResult = data.translation?.trim() || "";
+      if (!aiResult) throw new Error("Empty translation");
+      showResult(aiResult, false);
 
     } catch (err) {
-      clearOutput();
-      showError(err.message || "Something went wrong. Please try again.");
+      // ── FALLBACK TO DICTIONARY ──
+      if (dictionaryLoaded) {
+        const dictResult = dictionaryTranslate(input);
+        showResult(dictResult, true);
+      } else {
+        clearOutput();
+        showError("Translation is temporarily unavailable. Please try again shortly.");
+      }
     } finally {
       document.getElementById("translate-btn").disabled = false;
     }
+  }
+
+  // ── SUGGEST CORRECTION ──
+  function toggleSuggestForm() {
+    document.getElementById("suggest-form").classList.toggle("open");
+  }
+
+  function submitSuggestion() {
+    const suggestion = document.getElementById("suggest-input").value.trim();
+    if (!suggestion) return;
+
+    const subject = encodeURIComponent("Igala Translate - Correction Suggestion");
+    const body = encodeURIComponent(
+      `Original text: ${lastInput}\n` +
+      `Direction: ${direction === "en_to_ig" ? "English to Igala" : "Igala to English"}\n` +
+      `Translation shown: ${outputText}\n` +
+      `Suggested correction: ${suggestion}\n\n` +
+      `Sent from Igala Translate by Canspire Limited`
+    );
+
+    window.open(`mailto:canspirelimited@gmail.com?subject=${subject}&body=${body}`);
+
+    document.getElementById("suggest-input").value = "";
+    document.getElementById("suggest-form").classList.remove("open");
+    document.getElementById("suggest-thanks").classList.add("visible");
   }
 
   function copyOutput() {
@@ -842,4 +1037,3 @@ Key grammar rules:
 
 </body>
 </html>
-<!-- Igala Translate by Canspire -->
