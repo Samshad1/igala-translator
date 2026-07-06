@@ -994,16 +994,20 @@
     const suggestion = document.getElementById("suggest-input").value.trim();
     if (!suggestion) return;
 
-    const subject = encodeURIComponent("Igala Translate - Correction Suggestion");
-    const body = encodeURIComponent(
-      `Original text: ${lastInput}\n` +
-      `Direction: ${direction === "en_to_ig" ? "English to Igala" : "Igala to English"}\n` +
-      `Translation shown: ${outputText}\n` +
-      `Suggested correction: ${suggestion}\n\n` +
-      `Sent from Igala Translate by Canspire Limited`
-    );
+    const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfwyUMdnvs3q-aGIC91Ub7K6pcUpBbAb6jT4erXPLWgezSyCA/formResponse";
 
-    window.open(`mailto:canspirelimited@gmail.com?subject=${subject}&body=${body}`);
+    const formData = new FormData();
+    formData.append("entry.1920368520", lastInput);
+    formData.append("entry.2120666733", direction === "en_to_ig" ? "English to Igala" : "Igala to English");
+    formData.append("entry.1840967227", outputText);
+    formData.append("entry.50352954", suggestion);
+
+    // Send silently in the background
+    fetch(FORM_URL, {
+      method: "POST",
+      mode: "no-cors",
+      body: formData
+    });
 
     document.getElementById("suggest-input").value = "";
     document.getElementById("suggest-form").classList.remove("open");
