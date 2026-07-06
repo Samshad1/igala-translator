@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Igala Translate | Canspire Limited</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Noto+Sans:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #1B3A2D;
+      --green-mid: #2A5940;
+      --gold: #C8962A;
+      --gold-light: #E8B84A;
+      --cream: #F7F0E3;
+      --terra: #A84B2F;
+      --off-white: #FDFAF5;
+      --text-dark: #1a1a1a;
+      --text-mid: #4a4a4a;
+      --text-light: #8a8a8a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--off-white);
+      font-family: 'Inter', sans-serif;
+      color: var(--text-dark);
+      min-height: 100vh;
+    }
+
+    /* ── CULTURAL HEADER BAND ── */
+    .culture-band {
+      height: 6px;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--green) 0px,
+        var(--green) 18px,
+        var(--gold) 18px,
+        var(--gold) 28px,
+        var(--terra) 28px,
+        var(--terra) 38px,
+        var(--gold) 38px,
+        var(--gold) 48px
+      );
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--green);
+      padding: 14px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .nav-logo {
+      width: 32px;
+      height: 32px;
+      background: var(--gold);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      color: var(--green);
+      font-size: 16px;
+    }
+
+    .nav-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .nav-product {
+      font-size: 0.7rem;
+      color: var(--gold-light);
+      letter-spacing: 1px;
+    }
+
+    .nav-right {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 1px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--green);
+      padding: 60px 40px 50px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '◆ ◇ ◆ ◇ ◆ ◇ ◆ ◇ ◆ ◇ ◆';
+      position: absolute;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 10px;
+      letter-spacing: 8px;
+      color: rgba(200, 150, 42, 0.3);
+      white-space: nowrap;
+    }
+
+    .hero::after {
+      content: '◆ ◇ ◆ ◇ ◆ ◇ ◆ ◇ ◆ ◇ ◆';
+      position: absolute;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 10px;
+      letter-spacing: 8px;
+      color: rgba(200, 150, 42, 0.3);
+      white-space: nowrap;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.68rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .hero-sub {
+      font-size: 0.9rem;
+      color: rgba(247, 240, 227, 0.55);
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* ── TRANSLATOR CARD ── */
+    .translator-wrap {
+      max-width: 900px;
+      margin: -20px auto 0;
+      padding: 0 24px 60px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .translator-card {
+      background: white;
+      border-radius: 4px;
+      box-shadow: 0 8px 60px rgba(27, 58, 45, 0.12), 0 2px 12px rgba(0,0,0,0.06);
+      overflow: hidden;
+    }
+
+    /* Direction Toggle */
+    .direction-bar {
+      background: var(--cream);
+      border-bottom: 1px solid rgba(27, 58, 45, 0.1);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+
+    .dir-btn {
+      padding: 8px 20px;
+      background: transparent;
+      border: 1px solid rgba(27, 58, 45, 0.2);
+      color: var(--text-mid);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .dir-btn:first-child { border-radius: 2px 0 0 2px; border-right: none; }
+    .dir-btn:last-child { border-radius: 0 2px 2px 0; border-left: none; }
+
+    .dir-btn.active {
+      background: var(--green);
+      color: var(--cream);
+      border-color: var(--green);
+    }
+
+    .dir-btn:hover:not(.active) {
+      background: rgba(27, 58, 45, 0.06);
+    }
+
+    .dir-arrow {
+      padding: 8px 14px;
+      font-size: 1rem;
+      color: var(--gold);
+      border: 1px solid rgba(27, 58, 45, 0.2);
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .dir-arrow:hover {
+      background: var(--gold);
+      color: white;
+    }
+
+    /* Panels */
+    .panels {
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr;
+    }
+
+    .panel-divider {
+      background: rgba(27, 58, 45, 0.08);
+    }
+
+    .panel { padding: 24px; }
+
+    .panel-label {
+      font-size: 0.65rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .panel-lang {
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 160px;
+      border: 1px solid rgba(27, 58, 45, 0.12);
+      border-radius: 2px;
+      background: var(--off-white);
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      padding: 14px;
+      color: var(--text-dark);
+      resize: vertical;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    textarea:focus { border-color: var(--green); }
+    textarea::placeholder { color: #bbb; font-style: italic; }
+
+    .output-box {
+      min-height: 160px;
+      border: 1px solid rgba(27, 58, 45, 0.12);
+      border-radius: 2px;
+      background: rgba(27, 58, 45, 0.02);
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      padding: 14px;
+      color: var(--text-dark);
+    }
+
+    .output-placeholder { color: #bbb; font-style: italic; }
+
+    .output-text { animation: fadeIn 0.4s ease; }
+
+    /* Loading dots */
+    .loading { display: flex; gap: 6px; align-items: center; padding: 6px 0; }
+    .loading span {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--gold);
+      animation: pulse 1.2s ease-in-out infinite;
+    }
+    .loading span:nth-child(2) { animation-delay: 0.2s; }
+    .loading span:nth-child(3) { animation-delay: 0.4s; }
+
+    /* Action Bar */
+    .action-bar {
+      padding: 16px 24px;
+      border-top: 1px solid rgba(27, 58, 45, 0.08);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .translate-btn {
+      padding: 11px 32px;
+      background: var(--green);
+      border: none;
+      border-radius: 2px;
+      color: var(--cream);
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.82rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .translate-btn:hover { background: var(--green-mid); }
+    .translate-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    .icon-btn {
+      padding: 10px 16px;
+      background: transparent;
+      border: 1px solid rgba(27, 58, 45, 0.2);
+      border-radius: 2px;
+      color: var(--text-mid);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .icon-btn:hover { border-color: var(--green); color: var(--green); }
+    .icon-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+    .shortcut-hint {
+      margin-left: auto;
+      font-size: 0.7rem;
+      color: var(--text-light);
+    }
+
+    /* Error */
+    .error { color: var(--terra); font-size: 0.82rem; font-style: italic; padding: 4px 24px 0; }
+
+    /* ── ABOUT SECTION ── */
+    .about {
+      background: var(--cream);
+      border-top: 3px solid var(--gold);
+      padding: 60px 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .about-item {}
+
+    .about-eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .about-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--green);
+      margin-bottom: 10px;
+    }
+
+    .about-text {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+
+    /* ── STATS BAND ── */
+    .stats-band {
+      background: var(--green);
+      padding: 40px;
+    }
+
+    .stats-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .stat { text-align: center; }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      color: var(--gold-light);
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(247, 240, 227, 0.5);
+    }
+
+    /* ── CONTRIBUTORS ── */
+    .contributors {
+      padding: 60px 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .section-eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--green);
+      margin-bottom: 32px;
+    }
+
+    .contributor-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+
+    .contributor-card {
+      border: 1px solid rgba(27, 58, 45, 0.12);
+      border-radius: 2px;
+      padding: 20px;
+      background: white;
+    }
+
+    .contributor-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--green);
+      margin-bottom: 4px;
+    }
+
+    .contributor-region {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      letter-spacing: 1px;
+    }
+
+    .contributor-role {
+      font-size: 0.72rem;
+      color: var(--gold);
+      margin-top: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--green);
+      padding: 32px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.9rem;
+      color: rgba(247, 240, 227, 0.6);
+    }
+
+    .footer-brand span { color: var(--gold-light); }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-links a {
+      font-size: 0.72rem;
+      color: rgba(247, 240, 227, 0.4);
+      text-decoration: none;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--gold-light); }
+
+    .footer-copy {
+      font-size: 0.7rem;
+      color: rgba(247, 240, 227, 0.3);
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    /* ── SUGGEST CORRECTION ── */
+    .suggest-bar {
+      padding: 0 24px 16px;
+      display: none;
+    }
+
+    .suggest-bar.visible { display: block; }
+
+    .suggest-toggle {
+      background: none;
+      border: none;
+      color: var(--text-light);
+      font-size: 0.75rem;
+      cursor: pointer;
+      text-decoration: underline;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .suggest-toggle:hover { color: var(--terra); }
+
+    .suggest-form {
+      margin-top: 12px;
+      display: none;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .suggest-form.open { display: flex; }
+
+    .suggest-input {
+      flex: 1;
+      min-width: 200px;
+      padding: 10px 12px;
+      border: 1px solid rgba(27, 58, 45, 0.2);
+      border-radius: 2px;
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    .suggest-input:focus { border-color: var(--green); }
+
+    .suggest-submit {
+      padding: 10px 20px;
+      background: var(--terra);
+      border: none;
+      border-radius: 2px;
+      color: white;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .suggest-submit:hover { opacity: 0.85; }
+
+    .suggest-thanks {
+      font-size: 0.78rem;
+      color: var(--green);
+      font-style: italic;
+      display: none;
+    }
+
+    .suggest-thanks.visible { display: block; }
+
+    /* Mode badge */
+    .mode-badge {
+      font-size: 0.62rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 2px;
+      margin-left: 8px;
+    }
+
+    .mode-badge.dictionary {
+      background: rgba(200, 150, 42, 0.15);
+      color: var(--gold);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.3; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1.1); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      nav { padding: 14px 20px; }
+      .hero { padding: 50px 20px 40px; }
+      .translator-wrap { padding: 0 16px 40px; }
+      .panels { grid-template-columns: 1fr; }
+      .panel-divider { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 24px; }
+      .about, .contributors { padding: 40px 20px; }
+      .stats-band { padding: 32px 20px; }
+      footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
+      .shortcut-hint { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="culture-band"></div>
+
+<nav>
+  <a class="nav-brand" href="https://canspire.co" target="_blank">
+    <div class="nav-logo">C</div>
+    <div>
+      <div class="nav-name">Canspire Limited</div>
+      <div class="nav-product">Language Technology</div>
+    </div>
+  </a>
+  <div class="nav-right">Igala Translate</div>
+</nav>
+
+<div class="hero">
+  <div class="hero-eyebrow">Ichi Igáláà · Language Technology</div>
+  <h1 class="hero-title">English <em>↔</em> Igala</h1>
+  <p class="hero-sub">Built with verified knowledge from native Igala speakers across Kogi State, Nigeria.</p>
+</div>
+
+<div class="translator-wrap">
+  <div class="translator-card">
+
+    <div class="direction-bar">
+      <button class="dir-btn active" id="btn-en-ig" onclick="setDirection('en_to_ig')">English → Igala</button>
+      <button class="dir-btn" id="btn-ig-en" onclick="setDirection('ig_to_en')">Igala → English</button>
+      <button class="dir-arrow" onclick="swapLanguages()" title="Swap languages">⇄</button>
+    </div>
+
+    <div class="panels">
+      <div class="panel">
+        <div class="panel-label">
+          <span>Input · <span class="panel-lang" id="source-lang">English</span></span>
+          <button class="icon-btn" onclick="speakInput()" id="btn-speak-input" style="padding:3px 10px;font-size:0.7rem;" disabled>🔊 Listen</button>
+        </div>
+        <textarea id="input-text" placeholder="Type English text here…" oninput="onInput()" onkeydown="handleKey(event)"></textarea>
+      </div>
+
+      <div class="panel-divider"></div>
+
+      <div class="panel">
+        <div class="panel-label">
+          <span>Output · <span class="panel-lang" id="target-lang">Igala</span></span>
+          <button class="icon-btn" onclick="speakOutput()" id="btn-speak-output" style="padding:3px 10px;font-size:0.7rem;" disabled>🔊 Listen</button>
+        </div>
+        <div class="output-box" id="output-box">
+          <span class="output-placeholder">Translation appears here…</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="error" id="error-msg" style="display:none;"></div>
+
+    <div class="suggest-bar" id="suggest-bar">
+      <button class="suggest-toggle" onclick="toggleSuggestForm()">Is this translation wrong? Suggest a correction</button>
+      <div class="suggest-form" id="suggest-form">
+        <input type="text" class="suggest-input" id="suggest-input" placeholder="Type the correct translation here…" />
+        <button class="suggest-submit" onclick="submitSuggestion()">Send Correction</button>
+      </div>
+      <div class="suggest-thanks" id="suggest-thanks">Thank you! Your correction has been sent for review by our native speaker contributors.</div>
+    </div>
+
+    <div class="action-bar">
+      <button class="translate-btn" id="translate-btn" onclick="doTranslate()" disabled>Translate</button>
+      <button class="icon-btn" onclick="copyOutput()" id="btn-copy" disabled>📋 Copy</button>
+      <button class="icon-btn" onclick="clearAll()">✕ Clear</button>
+      <span class="shortcut-hint">Ctrl + Enter to translate</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- Stats -->
+<div class="stats-band">
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="stat-number">600+</div>
+      <div class="stat-label">Verified Words</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">2</div>
+      <div class="stat-label">Igala Dialects</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">4</div>
+      <div class="stat-label">Native Contributors</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">2M+</div>
+      <div class="stat-label">Igala Speakers</div>
+    </div>
+  </div>
+</div>
+
+<!-- About -->
+<div class="about">
+  <div class="about-grid">
+    <div class="about-item">
+      <div class="about-eyebrow">What This Is</div>
+      <div class="about-title">Built for the Igala People</div>
+      <div class="about-text">The first English-Igala translator built with verified translations from native speakers across Ankpa, Dekina, and Kogi East Agbale — with proper tone marks and regional variations documented.</div>
+    </div>
+    <div class="about-item">
+      <div class="about-eyebrow">How It Works</div>
+      <div class="about-title">People First, Technology Second</div>
+      <div class="about-text">Every word in this translator was contributed and verified by fluent Igala speakers. The technology connects those words into natural sentences that reflect how Igala is actually spoken.</div>
+    </div>
+    <div class="about-item">
+      <div class="about-eyebrow">The Vision</div>
+      <div class="about-title">Language Lives On</div>
+      <div class="about-text">From schools in Kogi State to Igala communities in the diaspora, this tool exists to keep the Igala language alive, accessible, and growing in the digital age.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Contributors -->
+<div class="contributors">
+  <div class="section-eyebrow">The People Behind It</div>
+  <div class="section-title">Our Contributors</div>
+  <div class="contributor-grid">
+    <div class="contributor-card">
+      <div class="contributor-name">Sani Samuel Ojochegbe</div>
+      <div class="contributor-region">Kogi State</div>
+      <div class="contributor-role">Founder & Developer</div>
+    </div>
+    <div class="contributor-card">
+      <div class="contributor-name">Ann</div>
+      <div class="contributor-region">Ankpa · Kogi State</div>
+      <div class="contributor-role">Language Contributor</div>
+    </div>
+    <div class="contributor-card">
+      <div class="contributor-name">Manasseh Agboni</div>
+      <div class="contributor-region">Dekina · Kogi State</div>
+      <div class="contributor-role">Lead Verifier</div>
+    </div>
+    <div class="contributor-card">
+      <div class="contributor-name">Victoria Ramat Sunday</div>
+      <div class="contributor-region">Kogi East Agbale</div>
+      <div class="contributor-role">Language Contributor</div>
+    </div>
+    <div class="contributor-card">
+      <div class="contributor-name">Abel Achele Jude</div>
+      <div class="contributor-region">Dekina · Kogi State</div>
+      <div class="contributor-role">Language Contributor</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-brand">Igala Translate by <span>Canspire Limited</span></div>
+  <div class="footer-links">
+    <a href="https://canspire.co" target="_blank">Canspire.co</a>
+    <a href="mailto:canspirelimited@gmail.com">Contact</a>
+    <a href="https://github.com/Samshad1/igala-translator" target="_blank">GitHub</a>
+  </div>
+  <div class="footer-copy">© 2025 Canspire Limited. Built with verified Igala language knowledge from native speakers across Kogi State.</div>
+</footer>
+
+<script>
+  const BACKEND_URL = "https://46506181-4c6e-4ee0-b588-d23551c46ff6-00-1du75y1fxm280.picard.replit.dev";
+  const DICTIONARY_URL = "https://raw.githubusercontent.com/Samshad1/igala-translator/refs/heads/main/igala_words.csv";
+
+  let direction = "en_to_ig";
+  let outputText = "";
+  let lastInput = "";
+  let dictionary = {};        // english -> igala
+  let reverseDictionary = {}; // igala -> english
+  let dictionaryLoaded = false;
+
+  // ── LOAD DICTIONARY FROM GITHUB ──
+  async function loadDictionary() {
+    try {
+      const res = await fetch(DICTIONARY_URL);
+      const text = await res.text();
+      const lines = text.split("\n");
+
+      // Skip header row, parse each line
+      for (let i = 1; i < lines.length; i++) {
+        const line = lines[i].trim();
+        if (!line) continue;
+
+        // Handle quoted fields with commas inside
+        const cols = parseCSVLine(line);
+        if (cols.length >= 2) {
+          const english = cols[0].toLowerCase().trim();
+          const igala = cols[1].trim();
+          if (english && igala) {
+            dictionary[english] = igala;
+            reverseDictionary[igala.toLowerCase()] = english;
+          }
+        }
+      }
+      dictionaryLoaded = true;
+      console.log("Dictionary loaded:", Object.keys(dictionary).length, "words");
+    } catch (err) {
+      console.error("Could not load dictionary:", err);
+    }
+  }
+
+  // Simple CSV line parser that respects quotes
+  function parseCSVLine(line) {
+    const result = [];
+    let current = "";
+    let inQuotes = false;
+    for (let i = 0; i < line.length; i++) {
+      const ch = line[i];
+      if (ch === '"') {
+        inQuotes = !inQuotes;
+      } else if (ch === "," && !inQuotes) {
+        result.push(current);
+        current = "";
+      } else {
+        current += ch;
+      }
+    }
+    result.push(current);
+    return result;
+  }
+
+  // Load dictionary as soon as page opens
+  loadDictionary();
+
+  // ── DICTIONARY TRANSLATION (FALLBACK) ──
+  function dictionaryTranslate(phrase) {
+    const dict = direction === "en_to_ig" ? dictionary : reverseDictionary;
+    const lower = phrase.toLowerCase().trim();
+
+    // First try the whole phrase (for entries like "good morning")
+    if (dict[lower]) return dict[lower];
+
+    // Otherwise translate word by word
+    const words = phrase.split(/\s+/);
+    const translated = words.map(word => {
+      const clean = word.toLowerCase().replace(/[.,!?;:]/g, "");
+      return dict[clean] || word;
+    });
+    return translated.join(" ");
+  }
+
+  // ── UI FUNCTIONS ──
+  function setDirection(dir) {
+    direction = dir;
+    document.getElementById("btn-en-ig").classList.toggle("active", dir === "en_to_ig");
+    document.getElementById("btn-ig-en").classList.toggle("active", dir === "ig_to_en");
+    document.getElementById("source-lang").textContent = dir === "en_to_ig" ? "English" : "Igala";
+    document.getElementById("target-lang").textContent = dir === "en_to_ig" ? "Igala" : "English";
+    document.getElementById("input-text").placeholder = dir === "en_to_ig" ? "Type English text here…" : "Type Igala text here…";
+    clearOutput();
+  }
+
+  function swapLanguages() {
+    const inputVal = document.getElementById("input-text").value;
+    document.getElementById("input-text").value = outputText;
+    outputText = inputVal;
+    setDirection(direction === "en_to_ig" ? "ig_to_en" : "en_to_ig");
+    onInput();
+  }
+
+  function onInput() {
+    const hasText = document.getElementById("input-text").value.trim().length > 0;
+    document.getElementById("translate-btn").disabled = !hasText;
+    document.getElementById("btn-speak-input").disabled = !hasText;
+  }
+
+  function handleKey(e) {
+    if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) doTranslate();
+  }
+
+  function showError(msg) {
+    const el = document.getElementById("error-msg");
+    el.textContent = "⚠ " + msg;
+    el.style.display = "block";
+  }
+
+  function hideError() {
+    document.getElementById("error-msg").style.display = "none";
+  }
+
+  function clearOutput() {
+    outputText = "";
+    document.getElementById("output-box").innerHTML = '<span class="output-placeholder">Translation appears here…</span>';
+    document.getElementById("btn-copy").disabled = true;
+    document.getElementById("btn-speak-output").disabled = true;
+    document.getElementById("suggest-bar").classList.remove("visible");
+    document.getElementById("suggest-form").classList.remove("open");
+    document.getElementById("suggest-thanks").classList.remove("visible");
+  }
+
+  function clearAll() {
+    document.getElementById("input-text").value = "";
+    clearOutput();
+    hideError();
+    document.getElementById("translate-btn").disabled = true;
+    document.getElementById("btn-speak-input").disabled = true;
+  }
+
+  function showResult(text, usedDictionary) {
+    outputText = text;
+    let badge = usedDictionary ? '<span class="mode-badge dictionary">Dictionary</span>' : '';
+    document.getElementById("output-box").innerHTML = `<div class="output-text">${text}${badge}</div>`;
+    document.getElementById("btn-copy").disabled = false;
+    document.getElementById("btn-speak-output").disabled = false;
+    document.getElementById("suggest-bar").classList.add("visible");
+  }
+
+  // ── MAIN TRANSLATE (AI with dictionary fallback) ──
+  async function doTranslate() {
+    const input = document.getElementById("input-text").value.trim();
+    if (!input) return;
+
+    lastInput = input;
+    hideError();
+    document.getElementById("output-box").innerHTML = '<div class="loading"><span></span><span></span><span></span></div>';
+    document.getElementById("translate-btn").disabled = true;
+    document.getElementById("suggest-thanks").classList.remove("visible");
+
+    // Try AI through our backend first
+    try {
+      const res = await fetch(`${BACKEND_URL}/translate`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          text: input,
+          direction: direction
+        })
+      });
+
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "AI unavailable");
+
+      const aiResult = data.translation?.trim() || "";
+      if (!aiResult) throw new Error("Empty translation");
+      showResult(aiResult, false);
+
+    } catch (err) {
+      // ── FALLBACK TO DICTIONARY ──
+      if (dictionaryLoaded) {
+        const dictResult = dictionaryTranslate(input);
+        showResult(dictResult, true);
+      } else {
+        clearOutput();
+        showError("Translation is temporarily unavailable. Please try again shortly.");
+      }
+    } finally {
+      document.getElementById("translate-btn").disabled = false;
+    }
+  }
+
+  // ── SUGGEST CORRECTION ──
+  function toggleSuggestForm() {
+    document.getElementById("suggest-form").classList.toggle("open");
+  }
+
+  function submitSuggestion() {
+    const suggestion = document.getElementById("suggest-input").value.trim();
+    if (!suggestion) return;
+
+    const subject = encodeURIComponent("Igala Translate - Correction Suggestion");
+    const body = encodeURIComponent(
+      `Original text: ${lastInput}\n` +
+      `Direction: ${direction === "en_to_ig" ? "English to Igala" : "Igala to English"}\n` +
+      `Translation shown: ${outputText}\n` +
+      `Suggested correction: ${suggestion}\n\n` +
+      `Sent from Igala Translate by Canspire Limited`
+    );
+
+    window.open(`mailto:canspirelimited@gmail.com?subject=${subject}&body=${body}`);
+
+    document.getElementById("suggest-input").value = "";
+    document.getElementById("suggest-form").classList.remove("open");
+    document.getElementById("suggest-thanks").classList.add("visible");
+  }
+
+  function copyOutput() {
+    if (outputText) {
+      navigator.clipboard.writeText(outputText);
+    }
+  }
+
+  function speakText(text, isIgala) {
+    if (!text) return;
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = isIgala ? "yo" : "en-NG";
+    u.rate = 0.85;
+    window.speechSynthesis.speak(u);
+  }
+
+  function speakInput() {
+    const text = document.getElementById("input-text").value;
+    speakText(text, direction === "ig_to_en");
+  }
+
+  function speakOutput() {
+    speakText(outputText, direction === "en_to_ig");
+  }
+</script>
+
+</body>
+</html>
