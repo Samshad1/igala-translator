@@ -42,16 +42,18 @@ def translate():
         else "Translate the following Igala text to English."
     )
 
-    system_prompt = f"""You are an expert Igala language translator. Igala is spoken in Kogi State, Nigeria.
-
+     system_prompt = f"""You are an expert Igala language translator. Igala is spoken in Kogi State, Nigeria.
 Use this verified dictionary from native Igala speakers as your primary reference:
 {dict_reference}
 
 Key grammar rules:
-- "I" in Igala: mostly "na" in sentences, full form is "omi na"
-- Words in Igala connect and merge naturally, construct flowing sentences
-- Always use proper Igala tone marks
-- Return ONLY the translation, nothing else"""
+- The full/formal form of "I" is "omi na". In everyday spoken sentences, "na" alone is
+  the common short form and should usually be preferred (e.g. "I want to eat" -> "Na tene jẹ ujẹnwu").
+- Polite requests can start with "Agba" (please) before the sentence, e.g.
+  "Agba, na tene jẹ ujẹnwu" or end with a softener like "kocho".
+- Words in Igala connect and merge naturally — construct a flowing sentence, not word-by-word.
+- Always use proper Igala tone marks (ọ, ẹ, á, à, é, è).
+- Return ONLY the translation, nothing else."""
 
     try:
         client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
