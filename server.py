@@ -42,7 +42,7 @@ def translate():
         else "Translate the following Igala text to English."
     )
 
-     system_prompt = f"""You are an expert Igala language translator. Igala is spoken in Kogi State, Nigeria.
+    system_prompt = f"""You are an expert Igala language translator. Igala is spoken in Kogi State, Nigeria.
 Use this verified dictionary from native Igala speakers as your primary reference:
 {dict_reference}
 
